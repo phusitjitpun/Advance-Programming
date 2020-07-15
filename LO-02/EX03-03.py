@@ -11,8 +11,8 @@ try:
 
    cursor = connection.cursor()
 
-   create_table_guery = '''CREATE TABLE Students
-       (student_id CHAR(13) PRIMARY KEY,
+   create_table_guery = '''CREATE TABLE Teacher
+       (Teacher_id CHAR(13) PRIMARY KEY,
        f_name      VARCHAR(30) NOT NULL,
        l_name      VARCHAR(30) NOT NULL,
        e_mail      VARCHAR(50) );'''
