@@ -3,9 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column,Integer,String,Date 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin:KTAcos21365@node1432-natroger.app.ruk-com.cloud:11026/test081'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://webadmin:RBBehe54965@node1441-phusit.app.ruk-com.cloud:11030/test081'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+ 
 db = SQLAlchemy(app)
 
 class Comments(db.Model):
