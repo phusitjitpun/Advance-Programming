@@ -1,6 +1,6 @@
-from sqalchemy import crate_engine
-from sqlalchemy.orm import sessionmaker
-
 engine = create_engine('sqlite:///:memory:', echo=True)
-Session = sessionmaker(bine=engine)
-Session = Session()
+connection = engine.connect()
+result = connection.execute([YOUR_QUERY])
+for row in result:
+    ...
+connection.close()
