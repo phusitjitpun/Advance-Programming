@@ -1,6 +1,6 @@
 import psycopg2
 
-def updateEmail(name, new_e_mail):
+def deleteStudent(name):
     try:
         connection = psycopg2.connect(user="postgres",
                                     password="nextthunder5971",
@@ -8,21 +8,21 @@ def updateEmail(name, new_e_mail):
                                     port="5432",
                                     database="mydb")
         cursor = connection.cursor()
-        postgreSQL_select_Query = "select * from students where f_name = %s"
+        postgreSQL_select_Query = "select * from teacher"
         
         cursor.execute(postgreSQL_select_Query,(name,))
-        print("Before Update")
+        print("Before Delete")
         student_records = cursor.fetchall()
         for row in student_records:
             print(row, '\n')
 
-        postgreSQL_select_Query = "update students set e_mail = %s where f_name = %s"
-        cursor.execute(postgreSQL_select_Query, (new_e_mail, name,))
+        postgreSQL_select_Query = "delete from teacher"
+        cursor.execute(postgreSQL_select_Query, (name,))
         connection.commit()
 
-        postgreSQL_select_Query = "select * from students where f_name = %s"
+        postgreSQL_select_Query = "select * from teacher"
         cursor.execute(postgreSQL_select_Query, (name,))
-        print("After Update")
+        print("After Delete")
         student_records = cursor.fetchall()
         for row in student_records:
             print(row, '\n')
@@ -36,4 +36,4 @@ def updateEmail(name, new_e_mail):
             connection.close()
             print("PostgreSQL connectiong is closed")
 
-updateEmail('Anirach', 'Anirach@ieee.org')
+deleteStudent('Anirach')

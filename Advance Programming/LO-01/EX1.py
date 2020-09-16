@@ -22,7 +22,7 @@ class StudentGPA:
                 return credit
             elif credit == 'D':
                 credit = 1
-                return p
+                return credit
             elif credit == 'F':
                 credit = 0
                 return credit

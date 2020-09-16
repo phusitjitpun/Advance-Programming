@@ -21,7 +21,7 @@ try:
 
 except (Exception, psycopg2.Error) as error:
     if(connection):
-        print("Faailed to insert record into students table", error)
+        print("Failed to insert record into students table", error)
 
 finally:
     #closing database connection.
