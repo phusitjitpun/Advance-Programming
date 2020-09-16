@@ -13,5 +13,5 @@ class Member(Base):
    vip = Column(Boolean, nullable=False)
    number = Column(Float, nullable=False)
 
-   def _repr_(self):
-      return '<UseMModel model fl>'.format(self.id)
+   def __repr__(self):
+      return '<UserModel model {}>'.format(self.id)

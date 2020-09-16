@@ -5,14 +5,14 @@ Base = declarative_base()
 
                                                                                 
 class Book(Base):
-  _tablename_ = 'books'
+  __tablename__ = 'books'
   id = Column(Integer, primary_key=True)
   title = Column(String) 
   author = Column(String) 
-  pages = Column(Integer) 
+  pages = Column(Integer)
   published = Column(DateTime) 
   price = Column(Float)
 
   def _repr_(self):
-    return "<Book(title='{}', author='{}', pages={}, published={}, price={})>" \      
+    return "<Book(title='{}', author='{}', pages={}, published={}, price={})>" \
       .format(self.title, self.author, self.pages, self.published, self.price)

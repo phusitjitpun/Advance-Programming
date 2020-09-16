@@ -3,15 +3,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from  models import Base, User
 
-engine = create_engine('sqlite:///:memory:', echo=True)
+engine = create_engine('sqlite:///user.db', echo=False)
 
+#Base.metadata.drop_all(engine)
+Base.metadata.create_all(engine) #สร้างtable ตรงนี้
 
-Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session() #มีsesion พร้อมใช้งาน
 
-Session = sessionmaker(bine=engine)
-Session = Session()
+user2 = User(name='user2', fullname='TEd Jones', nickname='Ted')
 
-user1 = User(name='user1', fullname='Ed Jones', nickname='ed')
-
-session.add(user1)
-session.commit()
+session.add(user2)
+session.commit() #save database
